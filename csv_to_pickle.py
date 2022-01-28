@@ -13,20 +13,22 @@ def transform_csv2pickle(path, usecols, dtype):
 
 path = r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.csv"
 
-basecols = ['row_id', 'time_id', 'investment_id', 'target']
+# basecols = ['row_id', 'time_id', 'investment_id', 'target']
+
+basecols = ['time_id', 'investment_id', 'target']
 features = [f'f_{i}' for i in range(300)]
 
 dtypes = {
     'row_id': 'str',
-    'time_id': 'uint16',
-    'investment_id': 'uint16',
-    'target': 'float32',
+    'time_id': 'float16',
+    'investment_id': 'float16',
+    'target': 'float16',
 }
 for col in features:
     dtypes[col] = 'float32'
 
 transform_csv2pickle(path, basecols+features, dtypes)
 
-train = pd.read_pickle(r"C:\Users\USER\Desktop\ubiquant-market-prediction.pkl")
+train = pd.read_pickle(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.pkl")
 display(train.info())
 display(train.head())
