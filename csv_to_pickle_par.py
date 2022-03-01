@@ -11,13 +11,13 @@ def reduce_memory_usage(df, features):
         del item
         gc.collect()
 
-train = pd.read_csv(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.csv")
-train.to_parquet(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.parquet")
+train = pd.read_csv(r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.csv")
+train.to_parquet(r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.parquet")
 
 n_features = 300
 features = [f'f_{i}' for i in range(n_features)]
 feature_columns = ['investment_id', 'time_id'] + features
-train = pd.read_parquet(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.parquet", columns=feature_columns + ["target"])
+train = pd.read_parquet(r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.parquet", columns=feature_columns + ["target"])
 train.head()
 
 train.info()
@@ -25,4 +25,4 @@ train.info()
 
 reduce_memory_usage(train, features + ["target"])
 train.info()
-train.to_pickle(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.pkl")
+train.to_pickle(r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.pkl")

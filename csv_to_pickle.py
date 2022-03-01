@@ -8,10 +8,10 @@ def transform_csv2pickle(path, usecols, dtype):
         usecols=usecols,
         dtype=dtypes
     )
-    train.to_pickle(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.pkl")
+    train.to_pickle(r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.pkl")
 
 
-path = r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.csv"
+path = r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.csv"
 
 # basecols = ['row_id', 'time_id', 'investment_id', 'target']
 
@@ -19,7 +19,7 @@ basecols = ['time_id', 'investment_id', 'target']
 features = [f'f_{i}' for i in range(300)]
 
 dtypes = {
-    'row_id': 'str',
+    #'row_id': 'str',
     'time_id': 'float16',
     'investment_id': 'float16',
     'target': 'float16',
@@ -29,6 +29,5 @@ for col in features:
 
 transform_csv2pickle(path, basecols+features, dtypes)
 
-train = pd.read_pickle(r"C:\Users\USER\Desktop\ubiquant-market-prediction\train.pkl")
-display(train.info())
-display(train.head())
+train = pd.read_pickle(r"C:\Users\lab\Desktop\ubiquant-market-prediction\train.pkl")
+
